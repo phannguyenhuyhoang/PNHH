@@ -1,9 +1,9 @@
 <?php
  
-/* == ID t�i kho?n mu?n tang share == */
-$user = 'Report.Tao.Lam.Gi';
-/* == Token t�i kho?n ch?a page == */
-$token = 'EAAAAAYsX7TsBAPwDpMQAg0ZB1lrl6dnMdU6Wc27nG5IWpWb8ArfMlvHefVjj3asNgZA7u5hkbecZCdnHzhDcz2sMaNLJDBsZCZCFCeCXyxDkC72Yvfc6uhYlKSYQ2LzYw8GNZBwGKigV3uHavTIywvJDMktaRwehsy9Gd5Yi2eBCZBjWzUHf8X8EbZBXb8JLFYfa07NFRD98kwZDZD';
+/* == ID tài khoản muốn tang share == */
+$user = 'Tao.Song.An.Dung.Sua.Ten.Tao.Nhe';
+/* == Token tài khoản chứa page == */
+$token = 'EAAAAAYsX7TsBAFkO2AjrhZBiRAUL4xipptsQ59SjGPZCdX5m8BBKGfTvO4eCTI20dGxmaImz2fqt7r1tNrHwC9ndFtLlWtSQPRl4HNcAsTeJFUz23Ctkfv0i90oNmRhF5HHWqlAPgqOLqAL0nvdaNI85X4miqsa3T0puzU5LkHCp9F7PYybYyrQ3IPZCfrDXww3TX9SOwZDZD';
 $accounts = json_decode(cURL('https://graph.facebook.com/me/accounts?access_token=' . $token),true);
  
 $feed = json_decode(cURL('https://graph.facebook.com/' . $user . '/feed?access_token='.$token.'&limit=1'),true);
@@ -13,7 +13,7 @@ foreach ($accounts['data'] as $data) {
     echo cURL('https://graph.facebook.com/' . $feed['data'][0]['id'] . '/sharedposts?method=post&access_token='.$data['access_token']) . '<br/><br/><br/>';
 }
  
-/* == H�m get == */
+/* == Hàm get == */
 function cURL ($url) {
     $data = curl_init();
     curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
